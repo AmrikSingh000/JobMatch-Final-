@@ -1,0 +1,48 @@
+@model IEnumerable<JobMatch.Models.Resume>
+@{
+    ViewData["Title"] = "Upload CV";
+}
+<h2>Upload CV</h2>
+
+@if (TempData["Msg"] is string msg && !string.IsNullOrWhiteSpace(msg))
+{
+    <div class="alert alert-success">@msg</div>
+}
+@if (TempData["Error"] is string err && !string.IsNullOrWhiteSpace(err))
+{
+    <div class="alert alert-danger">@err</div>
+}
+
+<form asp-action="Upload" method="post" enctype="multipart/form-data" class="mb-3">
+    @Html.AntiForgeryToken()
+    <div class="input-group">
+        <input type="file" name="file" class="form-control" /> 
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </div>
+</form>
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr><th>File</th><th>Uploaded</th><th>Link</th><th style="width:140px;"></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@(r.OriginalFileName ?? System.IO.Path.GetFileName(r.FilePath))</td>
+                <td>@r.UploadedAt.ToLocalTime()</td>
+                <td>@if (!string.IsNullOrWhiteSpace(r.FilePath)) {
+                <a href="@r.FilePath" target="_blank" rel="noopener">Open</a>
+            }
+</td>
+            <td class="text-end">
+                <form asp-action="Delete" method="post" class="d-inline" onsubmit="return confirm('Delete this CV? (Soft delete)');">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@r.Id" />
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+                }
+    </tbody>
+</table>

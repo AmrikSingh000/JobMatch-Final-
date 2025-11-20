@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>Admin Control Panel</h2>
+<section>
+
+    <h3>👤 Manage Users</h3>
+    <a asp-controller="Admin" asp-action="Users" class="btn btn-primary">User Management</a>
+</section>
+<section>
+
+    <h3>📊 Monitor System Data</h3>
+    <a asp-controller="Admin" asp-action="Audit" class="btn btn-secondary">Audit Logs</a>
+</section>
+<section>
+
+    <h3>⚙️ System Settings</h3>
+    <a asp-controller="Admin" asp-action="Settings" class="btn btn-light">Configuration</a>
+</section>

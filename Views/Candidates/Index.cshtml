@@ -1,0 +1,50 @@
+@model IEnumerable<JobMatch.Models.Job>
+@{
+    ViewData["Title"] = "Applicant Search";
+}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Applicant Search</h3>
+        <div class="text-muted">Choose a job to find matching candidates</div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">You have no active job posts.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Organization</th>
+                        <th>Posted</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var j in Model)
+                    {
+                        <tr>
+                            <td>@j.Title</td>
+                            <td>@j.Organization</td>
+                            <td>@j.CreatedAt.ToLocalTime().ToString("dd MMM yyyy")</td>
+                            <td class="text-end">
+                                <a class="btn btn-sm btn-outline-primary"
+                                   asp-controller="Candidates" asp-action="SearchForJob" asp-route-jobId="@j.Id">
+                                    Search Candidates
+                                </a>
+                                <a class="btn btn-sm btn-outline-secondary"
+                                   asp-controller="Applications" asp-action="ForJob" asp-route-id="@j.Id">
+                                    View Applicants
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

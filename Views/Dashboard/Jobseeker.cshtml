@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Jobseeker Dashboard";
+}
+
+<h2>Welcome, @User.Identity?.Name</h2>
+
+<section>
+    <h3>📄 Find & Apply for Jobs</h3>
+    <p>Browse available jobs and submit your applications.</p>
+    <a asp-controller="Jobs" asp-action="Index" class="btn btn-primary">Browse Jobs</a>
+</section>
+
+<section class="mt-3">
+    <h3>🧭 Track Applications</h3>
+    <p>View your current job applications and their statuses.</p>
+    <a asp-controller="Applications" asp-action="My" class="btn btn-secondary">View Applications</a>
+</section>
+
+<section class="mt-3">
+    <h3>💬 Chats with Recruiters</h3>
+    <p>Read and reply to messages from recruiters.</p>
+    <a asp-controller="Chat" asp-action="Index" class="btn btn-info">Open Chats</a>
+</section>
+
+<section class="mt-3">
+    <h3>✉️ Cover Letter Generator</h3>
+    <p>Generate a tailored cover letter using your profile and job details.</p>
+    <a asp-controller="CoverLetters" asp-action="Create" class="btn btn-success">Generate Cover Letter</a>
+</section>

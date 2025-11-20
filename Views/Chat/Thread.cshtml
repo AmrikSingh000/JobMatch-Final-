@@ -1,0 +1,39 @@
+@model JobMatch.Models.ViewModels.ChatThreadViewModel
+@{
+    ViewData["Title"] = "Chat with " + Model.OtherPartyName;
+}
+<h2>@ViewData["Title"]</h2>
+
+<div class="border rounded p-3 mb-3" style="max-height: 400px; overflow-y: auto;">
+    @if (Model.Messages.Any())
+    {
+        @foreach (var msg in Model.Messages)
+        {
+            <div class="mb-2 @(msg.IsMine ? "text-end" : "text-start")">
+                <small class="text-muted">@msg.SenderName - @msg.SentAt.ToLocalTime()</small>
+                <div>@msg.MessageText</div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="text-muted">No messages yet.</div>
+    }
+</div>
+
+<form asp-controller="Chat" asp-action="Thread" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="ThreadId" />
+    <div class="mb-3">
+        <label asp-for="NewMessageText" class="form-label">Message</label>
+        <textarea asp-for="NewMessageText" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="NewMessageText" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

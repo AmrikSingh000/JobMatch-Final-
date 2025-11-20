@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Recruiter Dashboard";
+}
+
+<h2>Recruiter Dashboard</h2>
+
+<section>
+    <h3>🧾 Post New Job</h3>
+    <a asp-controller="Jobs" asp-action="Create" class="btn btn-primary">Create Job</a>
+</section>
+
+<section>
+    <h3>👥 Review Applicants</h3>
+    <a asp-controller="Applications" asp-action="Index" class="btn btn-secondary">View Applicants</a>
+</section>
+
+<section>
+    <h3>⭐ Shortlist Candidates</h3>
+    <p>Mark standout candidates for follow-up.</p>
+</section>
+
+<section>
+    <h3>💬 Chats with Candidates</h3>
+    <p>View and continue conversations with candidates you’ve contacted.</p>
+    <a asp-controller="Chat" asp-action="Index" class="btn btn-info">Open Chats</a>
+</section>

@@ -1,0 +1,22 @@
+John Doe
+Email: john.doe@example.com · Phone: (555) 123-4567 · Location: Auckland, NZ
+
+SUMMARY
+Full-stack engineer with 5+ years building .NET/React systems. Passionate about scalable APIs and CI/CD.
+
+SKILLS
+C#, ASP.NET Core, Entity Framework, SQL Server, React, TypeScript, Azure, Docker, GitHub Actions
+
+EXPERIENCE
+Senior Software Engineer — Acme Corp (2022–Present)
+- Built microservices in ASP.NET Core; reduced p95 latency by 35%.
+- Led React migration to TypeScript; decreased defects by 20%.
+
+Software Engineer — Beta Ltd (2019–2022)
+- Designed EF Core data models; improved query performance by 50%.
+- Delivered CI pipelines with GitHub Actions and Docker.
+
+EDUCATION
+BSc in Computer Science — University of Auckland
+
+Date: November 09, 2025

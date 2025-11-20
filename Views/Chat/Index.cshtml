@@ -1,0 +1,41 @@
+@model IEnumerable<JobMatch.Models.ChatThread>
+
+@{
+    ViewData["Title"] = "My Chats";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (!Model.Any())
+{
+    <p>No chats yet.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>With</th>
+                <th>Created</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var thread in Model)
+            {
+                var isRecruiter = User.IsInRole("Recruiter");
+                var otherName = isRecruiter ? thread.JobSeeker?.UserName : thread.Recruiter?.UserName;
+
+                <tr>
+                    <td>@otherName</td>
+                    <td>@thread.CreatedAt.ToLocalTime()</td>
+                    <td>@(thread.IsClosed ? "Closed" : "Open")</td>
+                    <td>
+                        <a asp-action="Thread" asp-route-id="@thread.Id" class="btn btn-sm btn-primary">Open</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

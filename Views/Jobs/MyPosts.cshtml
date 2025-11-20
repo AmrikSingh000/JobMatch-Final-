@@ -1,0 +1,73 @@
+@model IEnumerable<JobMatch.Models.Job>
+@{
+    ViewData["Title"] = "My Posts";
+    int total = (int)(ViewBag.Total ?? 0);
+    int page = (int)(ViewBag.Page ?? 1);
+    int pageSize = (int)(ViewBag.PageSize ?? 10);
+    int totalPages = (int)(ViewBag.TotalPages ?? 1);
+        var counts = (System.Collections.Generic.Dictionary<int,int>)(ViewBag.ApplicantCounts ?? new System.Collections.Generic.Dictionary<int,int>());
+}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">My Posts</h3>
+        <a asp-action="Create" class="btn btn-success">Post a job</a>
+    </div>
+
+    <div class="text-muted mb-2">@total result(s)</div>
+
+    @if (!Model.Any())
+    {
+        <div class="card border-0 shadow-sm">
+            <div class="card-body text-center py-5">
+                <h4 class="mb-2">No posts yet</h4>
+                <p class="text-muted mb-3">Create your first job listing.</p>
+                <a asp-action="Create" class="btn btn-primary">Create Job</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="vstack gap-3">
+            @foreach (var j in Model)
+            {
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body d-flex justify-content-between align-items-start">
+                        <div>
+                            <h5 class="mb-1">@j.Title <span class="badge bg-secondary ms-2">Applicants: @(counts.ContainsKey(@j.Id) ? counts[@j.Id] : 0)</span></h5>
+                            <div class="text-muted">@j.Organization · @j.Location · @j.EmploymentType</div>
+                            <div class="small text-muted mt-1">Posted @j.CreatedAt.ToLocalTime().ToString("dd MMM yyyy") · @(j.IsActive ? "Active" : "Inactive")</div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a asp-action="Details" asp-route-id="@j.Id" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a asp-action="Edit" asp-route-id="@j.Id" class="btn btn-sm btn-primary">Edit</a>
+                            <form asp-action="ToggleActive" method="post" class="d-inline">
+                                <input type="hidden" name="id" value="@j.Id" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger">@(j.IsActive ? "Deactivate" : "Activate")</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    @if (totalPages > 1)
+    {
+        <nav class="mt-4" aria-label="Pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item @(page<=1?"disabled":"")">
+                    <a class="page-link" asp-action="MyPosts" asp-route-page="@(page-1)" asp-route-pageSize="@pageSize">Previous</a>
+                </li>
+                @for (var i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i==page?"active":"")">
+                        <a class="page-link" asp-action="MyPosts" asp-route-page="@i" asp-route-pageSize="@pageSize">@i</a>
+                    </li>
+                }
+                <li class="page-item @(page>=totalPages?"disabled":"")">
+                    <a class="page-link" asp-action="MyPosts" asp-route-page="@(page+1)" asp-route-pageSize="@pageSize">Next</a>
+                </li>
+            </ul>
+        </nav>
+    }
+</div>

@@ -1,0 +1,71 @@
+@model IEnumerable<JobMatch.Controllers.CandidateMatchVM>
+@{
+    var job = (JobMatch.Models.Job)ViewBag.Job;
+    ViewData["Title"] = "Candidates for " + job.Title;
+}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Candidates for @job.Title</h3>
+        <div class="text-muted">@job.Organization · @job.Location</div>
+    </div>
+
+    <form method="get" class="row g-2 mb-3" asp-action="SearchForJob" asp-controller="Candidates">
+        <input type="hidden" name="jobId" value="@job.Id" />
+        <div class="col-sm-8">
+            <input type="text" name="q" value="@Context.Request.Query["q"]" placeholder="Add extra keywords (optional)" class="form-control" />
+        </div>
+        <div class="col-sm-4 text-end">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a class="btn btn-outline-secondary" asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id">Back to Job</a>
+        </div>
+    </form>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">No matching candidates found. Try adding keywords.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Candidate</th>
+                        <th>Email</th>
+                        <th>Match</th>
+                        <th>Matched Skills</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var c in Model)
+                    {
+                        <tr>
+                            <td>@c.UserName</td>
+                            <td>@c.Email</td>
+                            <td><span class="badge bg-success">@c.MatchPercent%</span></td>
+                            <td>
+                                @if (c.MatchedSkills.Any())
+                                {
+                                    <div class="small text-muted">@string.Join(", ", c.MatchedSkills)</div>
+                                }
+                            </td>
+                            <td class="text-end">
+                                <a class="btn btn-sm btn-outline-primary"
+                                   asp-controller="Applications" asp-action="DownloadResume"
+                                   asp-route-jobId="@job.Id" asp-route-applicantUserId="@c.OwnerUserId">
+                                    Download Resume
+                                </a>
+                                <a class="btn btn-sm btn-outline-secondary"
+                                   asp-controller="Chat" asp-action="Start"
+                                   asp-route-jobSeekerId="@c.OwnerUserId">
+                                    Chat
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
