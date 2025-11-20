@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobMatch.Models
 {
+    // This part mostly deals with {desc}.
     public class Announcement
     {
         public int Id { get; set; }

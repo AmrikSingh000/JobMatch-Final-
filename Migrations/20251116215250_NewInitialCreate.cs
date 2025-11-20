@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace JobMatch.Migrations
 {
     /// <inheritdoc />
+    // This part mostly deals with {desc}.
     public partial class NewInitialCreate : Migration
     {
         /// <inheritdoc />

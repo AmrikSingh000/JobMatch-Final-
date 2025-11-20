@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace JobMatch.Controllers
 {
     [Authorize]
+    // This part mostly deals with {desc}.
     public class DashboardController : Controller
     {
         [Authorize(Roles = "Jobseeker")]

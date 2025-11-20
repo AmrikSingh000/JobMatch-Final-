@@ -13,6 +13,7 @@ namespace JobMatch.Models
         Hired = 4          
     }
 
+    // This part mostly deals with {desc}.
     public class JobApplication
     {
         public int Id { get; set; }

@@ -1,4 +1,5 @@
 @model IEnumerable<JobMatch.Controllers.CandidateMatchVM>
+@* This page is mainly for {desc}. *@
 @{
     var job = (JobMatch.Models.Job)ViewBag.Job;
     ViewData["Title"] = "Candidates for " + job.Title;
@@ -6,7 +7,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h3 class="mb-0">Candidates for @job.Title</h3>
-        <div class="text-muted">@job.Organization · @job.Location</div>
+        <div class="text-muted">@job.Organization Â· @job.Location</div>
     </div>
 
     <form method="get" class="row g-2 mb-3" asp-action="SearchForJob" asp-controller="Candidates">

@@ -1,5 +1,6 @@
 namespace JobMatch.Services.Parsing
 {
+    // This bit is here to handle {desc}.
     public sealed class ResumeParserOptions
     {
         /// <summary>

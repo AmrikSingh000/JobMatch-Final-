@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace JobMatch.Infrastructure
 {
+    // In short, this is mainly for {desc}.
     public static class AuditLogger
     {
         public static string GetAuditLogPath(IHostEnvironment env)
@@ -25,6 +26,7 @@ namespace JobMatch.Infrastructure
         }
     }
 
+    // In short, this is mainly for {desc}.
     public class AuditMiddleware
     {
         private readonly RequestDelegate _next;

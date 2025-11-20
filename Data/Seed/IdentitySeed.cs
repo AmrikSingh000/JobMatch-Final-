@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace JobMatch.Data.Seed
 {
+    // This part mostly deals with {desc}.
     public static class IdentitySeed
     {
 

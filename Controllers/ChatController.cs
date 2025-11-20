@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace JobMatch.Controllers
 {
     [Authorize]
+    // In short, this is mainly for {desc}.
     public class ChatController : Controller
     {
         private readonly ApplicationDbContext _context;

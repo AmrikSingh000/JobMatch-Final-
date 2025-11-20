@@ -8,6 +8,7 @@ using JobMatch.Services.Parsing;
 
 namespace JobMatch.Controllers
 {
+    // This chunk takes care of {desc}.
     public class ResumesController : Controller
     {
         private readonly IResumeParser _resumeParser;

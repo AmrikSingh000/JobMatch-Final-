@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace JobMatch.Services
 {
+    // In short, this is mainly for {desc}.
     public class GeminiClient
     {
         private readonly HttpClient _httpClient;
@@ -27,6 +28,7 @@ namespace JobMatch.Services
             }
         }
 
+        // This method basically handles {desc}.
         public async Task<string> GenerateAsync(string model, string prompt)
         {
             if (string.IsNullOrWhiteSpace(model))

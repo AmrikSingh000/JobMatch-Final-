@@ -7,6 +7,7 @@ using DocumentFormat.OpenXml.Packaging;
 
 namespace JobMatch.Services.Parsing
 {
+    // All of this is basically about {desc}.
     public class BasicResumeTextExtractor : IResumeTextExtractor
     {
         public string? ExtractText(string? filePath)
@@ -33,7 +34,7 @@ namespace JobMatch.Services.Parsing
                     return File.ReadAllText(filePath);
                 }
 
-                // Unknown type – best effort fallback
+                // Unknown type Â– best effort fallback
                 return File.ReadAllText(filePath);
             }
             catch

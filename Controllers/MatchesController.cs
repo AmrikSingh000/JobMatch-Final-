@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 namespace JobMatch.Controllers
 {
     [Authorize(Roles = "Jobseeker,Admin")]
+    // All of this is basically about {desc}.
     public class MatchesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -107,7 +108,7 @@ namespace JobMatch.Controllers
                 }
                 catch
                 {
-                    // swallow errors; we’ll fall back below
+                    // swallow errors; weÂ’ll fall back below
                 }
             }
 

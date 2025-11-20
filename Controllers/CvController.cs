@@ -15,6 +15,7 @@ using JobMatch.Services.Parsing;
 namespace JobMatch.Controllers
 {
     [Authorize(Roles = "Jobseeker")]
+    // All of this is basically about {desc}.
     public class CvController : Controller
     {
         private readonly ApplicationDbContext _db;

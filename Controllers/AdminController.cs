@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace JobMatch.Controllers
 {
     [Authorize(Roles = "Admin")]
+    // This chunk takes care of {desc}.
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;

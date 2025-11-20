@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace JobMatch.Controllers
 {
     [Authorize(Roles = "Recruiter,Admin")]
+    // In short, this is mainly for {desc}.
     public class CandidatesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -153,6 +154,7 @@ namespace JobMatch.Controllers
         }
     }
 
+    // This chunk takes care of {desc}.
     public sealed class CandidateMatchVM
     {
         public int ResumeId { get; set; }

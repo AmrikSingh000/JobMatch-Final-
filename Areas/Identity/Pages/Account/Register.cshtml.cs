@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 namespace JobMatch.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
+    // In short, this is mainly for {desc}.
     public class RegisterModel : PageModel
     {
         private const string DEFAULT_ROLE = "Jobseeker";
@@ -41,6 +42,7 @@ namespace JobMatch.Areas.Identity.Pages.Account
         public IList<AuthenticationScheme> ExternalLogins { get; set; } = new List<AuthenticationScheme>();
         public List<SelectListItem> Roles { get; set; } = new();
 
+        // In short, this is mainly for {desc}.
         public class InputModel
         {
             [Required, EmailAddress]

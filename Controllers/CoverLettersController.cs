@@ -11,6 +11,7 @@ using JobMatch.Services.Parsing;
 namespace JobMatch.Controllers
 {
     [Authorize(Roles = "Jobseeker")]
+    // This bit is here to handle {desc}.
     public class CoverLettersController : Controller
     {
         private readonly ApplicationDbContext _db;

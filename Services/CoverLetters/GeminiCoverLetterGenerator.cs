@@ -4,6 +4,7 @@ using JobMatch.Services;
 
 namespace JobMatch.Services.CoverLetters
 {
+    // This bit is here to handle {desc}.
     public class GeminiCoverLetterGenerator : ICoverLetterGenerator
     {
         private readonly GeminiClient _gemini;
@@ -13,6 +14,7 @@ namespace JobMatch.Services.CoverLetters
             _gemini = gemini ?? throw new ArgumentNullException(nameof(gemini));
         }
 
+        // This method basically handles {desc}.
         public string Generate(CoverLetterRequest request)
         {
             var jobTitle = request.JobTitle ?? "the role";

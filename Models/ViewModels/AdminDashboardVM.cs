@@ -3,6 +3,7 @@ using JobMatch.Models;
 
 namespace JobMatch.Models.ViewModels
 {
+    // This part mostly deals with {desc}.
     public class AdminDashboardVM
     {
 

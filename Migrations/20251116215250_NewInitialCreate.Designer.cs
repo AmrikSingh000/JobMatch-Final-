@@ -13,9 +13,11 @@ namespace JobMatch.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20251116215250_NewInitialCreate")]
+    // This part mostly deals with {desc}.
     partial class NewInitialCreate
     {
         /// <inheritdoc />
+        // This one takes care of {desc}.
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
