@@ -7,7 +7,7 @@
 }
 
 <div class="container mt-4">
-    @if (User.IsInRole("Recruiter") || User.IsInRole("Admin"))
+    @if (User.IsInRole("Recruiter") || User.IsInRole("Administrator") || User.IsInRole("Admin")) 
     {
         <div class="d-flex justify-content-end mb-3">
             <a asp-action="Create" class="btn btn-success">Post a job</a>
@@ -170,8 +170,8 @@
                                 View
                             </a>
 
-                            
-                            @if (User.IsInRole("Jobseeker") || User.IsInRole("Admin") || User.IsInRole("Recruiter"))
+
+                            @if (User.IsInRole("Jobseeker") || User.IsInRole("Administrator") || User.IsInRole("Admin") || User.IsInRole("Recruiter"))
                             {
                                 <form asp-controller="Applications"
                                       asp-action="Apply"

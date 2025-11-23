@@ -1,10 +1,7 @@
-
-
 using Microsoft.AspNetCore.Identity;
 
 namespace JobMatch.Data.Seed
 {
-    // This part mostly deals with {desc}.
     public static class IdentitySeed
     {
 
@@ -17,13 +14,37 @@ namespace JobMatch.Data.Seed
                     await roleMgr.CreateAsync(new IdentityRole(r));
 
             var userMgr = sp.GetRequiredService<UserManager<IdentityUser>>();
-            var adminEmail = "admin@jobmatch.local";
-            var admin = await userMgr.FindByEmailAsync(adminEmail);
-            if (admin == null)
+
+            // --- First admin ---
+            var adminEmail1 = "admin@jobmatch.local";
+            var admin1 = await userMgr.FindByEmailAsync(adminEmail1);
+            if (admin1 == null)
             {
-                admin = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
-                await userMgr.CreateAsync(admin, "Admin!123");
-                await userMgr.AddToRoleAsync(admin, "Administrator");
+                admin1 = new IdentityUser
+                {
+                    UserName = adminEmail1,
+                    Email = adminEmail1,
+                    EmailConfirmed = true
+                };
+
+                await userMgr.CreateAsync(admin1, "Admin!123");
+                await userMgr.AddToRoleAsync(admin1, "Administrator");
+            }
+
+            // --- Second admin ---
+            var adminEmail2 = "admin2@jobmatch.local";
+            var admin2 = await userMgr.FindByEmailAsync(adminEmail2);
+            if (admin2 == null)
+            {
+                admin2 = new IdentityUser
+                {
+                    UserName = adminEmail2,
+                    Email = adminEmail2,
+                    EmailConfirmed = true
+                };
+
+                await userMgr.CreateAsync(admin2, "Admin2!123");
+                await userMgr.AddToRoleAsync(admin2, "Administrator");
             }
         }
     }

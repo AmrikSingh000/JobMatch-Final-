@@ -78,7 +78,7 @@
                     }
 
 
-                    @if (User.IsInRole("Admin"))
+                    @if (User.IsInRole("Administrator") || User.IsInRole("Admin"))
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Admin" asp-action="Index">Admin</a>

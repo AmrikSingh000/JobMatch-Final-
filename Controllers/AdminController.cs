@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobMatch.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Administrator,Admin")]
     // This chunk takes care of {desc}.
     public class AdminController : Controller
     {

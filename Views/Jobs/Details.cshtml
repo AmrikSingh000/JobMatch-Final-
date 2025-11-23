@@ -55,14 +55,14 @@
 }
 
 <div class="d-flex gap-2">
-@if (User.IsInRole("Recruiter") || User.IsInRole("Admin"))
-{
+        @if (User.IsInRole("Recruiter") || User.IsInRole("Administrator") || User.IsInRole("Admin")) 
+        {
     <a asp-controller="Applications" asp-action="ForJob" asp-route-id="@Model.Id" class="btn btn-outline-primary">View Applicants</a>
 }
 
         <a asp-action="Index" class="btn btn-outline-secondary">Back to jobs</a>
 
-        @if (User.IsInRole("Recruiter") || User.IsInRole("Admin"))
+        @if (User.IsInRole("Recruiter") || User.IsInRole("Administrator") || User.IsInRole("Admin")) 
         {
             <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
             <form asp-action="ToggleActive" method="post" class="d-inline">
