@@ -6,7 +6,7 @@
 }
 <h2>Cover Letter Generator</h2>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" id="coverletter-form">
     <div class="row">
         <div class="col-md-6">
             <h4>Resume</h4>
@@ -75,7 +75,7 @@ function onJobChange() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    var form = document.querySelector('form[asp-action="Create"]');
+    var form = document.getElementById('coverletter-form');
     var progress = document.getElementById('coverletter-progress');
     if (!form || !progress) return;
     form.addEventListener('submit', function () {

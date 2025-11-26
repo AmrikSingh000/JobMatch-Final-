@@ -14,7 +14,7 @@
     <div class="alert alert-danger">@err</div>
 }
 
-<form asp-action="Upload" method="post" enctype="multipart/form-data" class="mb-3">
+<form asp-action="Upload" method="post" enctype="multipart/form-data" class="mb-3" id="cv-upload-form">
     @Html.AntiForgeryToken()
     <div class="input-group">
         <input type="file" name="file" class="form-control" /> 
@@ -61,7 +61,7 @@
 @section Scripts {
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    var form = document.querySelector('form[asp-action="Upload"]');
+    var form = document.getElementById('cv-upload-form');
     var progress = document.getElementById('cv-upload-progress');
     if (!form || !progress) return;
     form.addEventListener('submit', function () {
