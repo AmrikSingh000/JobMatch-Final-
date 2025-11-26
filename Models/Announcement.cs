@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobMatch.Models
 {
-    // This part mostly deals with {desc}.
+    // This part mostly deals with the announcement entity model.
     public class Announcement
     {
         public int Id { get; set; }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace JobMatch.Controllers
 {
     [Authorize(Roles = "Recruiter,Admin")]
-    // In short, this is mainly for {desc}.
+    // In short, this is mainly for candidate search and listing actions.
     public class CandidatesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -59,7 +59,7 @@ namespace JobMatch.Controllers
             {
                 var extra = q.ToLowerInvariant();
                 title = $"{title} {extra}";
-                desc = $"{desc} {extra}";
+                desc = $"candidate search and listing actions {extra}";
                 tags = $"{tags} {extra}";
             }
 
@@ -154,7 +154,7 @@ namespace JobMatch.Controllers
         }
     }
 
-    // This chunk takes care of {desc}.
+    // This chunk takes care of candidate search and listing actions.
     public sealed class CandidateMatchVM
     {
         public int ResumeId { get; set; }

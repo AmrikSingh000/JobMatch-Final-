@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobMatch.Models
 {
-    // This part mostly deals with {desc}.
+    // This part mostly deals with the chat message entity model.
     public class ChatMessage
     {
         public int Id { get; set; }

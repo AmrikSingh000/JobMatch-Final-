@@ -13,7 +13,7 @@ namespace JobMatch.Models
         Hired = 4          
     }
 
-    // This part mostly deals with {desc}.
+    // This part mostly deals with the job application entity model.
     public class JobApplication
     {
         public int Id { get; set; }

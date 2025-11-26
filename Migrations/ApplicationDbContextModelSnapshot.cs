@@ -11,10 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobMatch.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    // In short, this is mainly for {desc}.
+    // In short, this is mainly for the current EF Core model snapshot.
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        // This method basically handles {desc}.
+        // This method basically handles the current EF Core model snapshot.
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

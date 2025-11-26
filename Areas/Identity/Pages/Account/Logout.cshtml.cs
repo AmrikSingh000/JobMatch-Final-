@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace JobMatch.Areas.Identity.Pages.Account
 {
     [Authorize]
-    // This part mostly deals with {desc}.
+    // This part mostly deals with logging users out of the site.
     public class LogoutModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;

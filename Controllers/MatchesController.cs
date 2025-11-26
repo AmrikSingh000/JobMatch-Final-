@@ -16,7 +16,7 @@ using Microsoft.EntityFrameworkCore;
 namespace JobMatch.Controllers
 {
     [Authorize(Roles = "Jobseeker,Admin")]
-    // All of this is basically about {desc}.
+    // All of this is basically about job–candidate match listing.
     public class MatchesController : Controller
     {
         private readonly ApplicationDbContext _context;

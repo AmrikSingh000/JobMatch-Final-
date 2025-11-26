@@ -1,5 +1,5 @@
 @model IEnumerable<JobMatch.Controllers.CandidateMatchVM>
-@* This page is mainly for {desc}. *@
+@* This page is mainly for candidate search results for a chosen job. *@
 @{
     var job = (JobMatch.Models.Job)ViewBag.Job;
     ViewData["Title"] = "Candidates for " + job.Title;

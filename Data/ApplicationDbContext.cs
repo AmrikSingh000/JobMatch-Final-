@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobMatch.Data
 {
-    // All of this is basically about {desc}.
+    // All of this is basically about EF Core database context wiring.
     public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

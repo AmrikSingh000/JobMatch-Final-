@@ -1,5 +1,5 @@
 @model IEnumerable<JobMatch.Models.Resume>
-@* This view focuses on {desc}. *@
+@* This view focuses on the CV upload form. *@
 @{
     ViewData["Title"] = "Upload CV";
 }
@@ -21,6 +21,15 @@
         <button type="submit" class="btn btn-primary">Upload</button>
     </div>
 </form>
+<div id="cv-upload-progress" class="mt-2 d-none">
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated"
+             role="progressbar" style="width: 100%;">
+            Uploading CV, please wait...
+        </div>
+    </div>
+</div>
+
 
 <table class="table table-striped align-middle">
     <thead>
@@ -47,3 +56,19 @@
                 }
     </tbody>
 </table>
+
+
+@section Scripts {
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('form[asp-action="Upload"]');
+    var progress = document.getElementById('cv-upload-progress');
+    if (!form || !progress) return;
+    form.addEventListener('submit', function () {
+        // Just show a simple progress bar while the server handles the upload.
+        progress.classList.remove('d-none');
+    });
+});
+</script>
+}
+

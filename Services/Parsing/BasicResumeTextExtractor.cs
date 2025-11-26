@@ -7,7 +7,7 @@ using DocumentFormat.OpenXml.Packaging;
 
 namespace JobMatch.Services.Parsing
 {
-    // All of this is basically about {desc}.
+    // All of this is basically about basic text extraction from uploaded CV files.
     public class BasicResumeTextExtractor : IResumeTextExtractor
     {
         public string? ExtractText(string? filePath)

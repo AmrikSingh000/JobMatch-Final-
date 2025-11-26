@@ -8,7 +8,7 @@ using JobMatch.Services.Parsing;
 
 namespace JobMatch.Controllers
 {
-    // This chunk takes care of {desc}.
+    // This chunk takes care of resume listing and soft delete actions.
     public class ResumesController : Controller
     {
         private readonly IResumeParser _resumeParser;

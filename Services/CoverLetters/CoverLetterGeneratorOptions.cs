@@ -1,6 +1,6 @@
 namespace JobMatch.Services.CoverLetters
 {
-    // This part mostly deals with {desc}.
+    // This part mostly deals with options used when building cover letters.
     public sealed class CoverLetterGeneratorOptions
     {
         

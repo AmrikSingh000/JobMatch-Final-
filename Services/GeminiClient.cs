@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace JobMatch.Services
 {
-    // In short, this is mainly for {desc}.
+    // In short, this is mainly for a small wrapper around the Google Gemini API.
     public class GeminiClient
     {
         private readonly HttpClient _httpClient;
@@ -28,7 +28,7 @@ namespace JobMatch.Services
             }
         }
 
-        // This method basically handles {desc}.
+        // This method basically handles a small wrapper around the Google Gemini API.
         public async Task<string> GenerateAsync(string model, string prompt)
         {
             if (string.IsNullOrWhiteSpace(model))

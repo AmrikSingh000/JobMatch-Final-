@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace JobMatch.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    // This chunk takes care of {desc}.
+    // This chunk takes care of handling the login page logic.
     public class LoginModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -31,7 +31,7 @@ namespace JobMatch.Areas.Identity.Pages.Account
 
         public string ReturnUrl { get; set; } = "/";
 
-        // This chunk takes care of {desc}.
+        // This chunk takes care of handling the login page logic.
         public class InputModel
         {
             [Required, EmailAddress] public string Email { get; set; } = "";

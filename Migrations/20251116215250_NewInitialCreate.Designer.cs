@@ -13,11 +13,11 @@ namespace JobMatch.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20251116215250_NewInitialCreate")]
-    // This part mostly deals with {desc}.
+    // This part mostly deals with the EF Core migration model snapshot.
     partial class NewInitialCreate
     {
         /// <inheritdoc />
-        // This one takes care of {desc}.
+        // This one takes care of the EF Core migration model snapshot.
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

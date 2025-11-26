@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobMatch.Controllers
 {
-    [Authorize(Roles = "Administrator,Admin")]
-    // This chunk takes care of {desc}.
+    [Authorize(Roles = "Admin")]
+    // This chunk takes care of admin dashboard and management actions.
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;

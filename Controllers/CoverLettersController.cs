@@ -11,7 +11,7 @@ using JobMatch.Services.Parsing;
 namespace JobMatch.Controllers
 {
     [Authorize(Roles = "Jobseeker")]
-    // This bit is here to handle {desc}.
+    // This bit is here to handle cover letter generation and preview actions.
     public class CoverLettersController : Controller
     {
         private readonly ApplicationDbContext _db;

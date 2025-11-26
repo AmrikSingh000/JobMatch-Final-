@@ -49,6 +49,15 @@
     <div class="mt-3">
         <button type="submit" class="btn btn-primary">Generate</button>
     </div>
+
+    <div id="coverletter-progress" class="mt-3 d-none">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                 role="progressbar" style="width: 100%;">
+                Generating cover letter, please wait...
+            </div>
+        </div>
+    </div>
 </form>
 
 @section Scripts {
@@ -64,5 +73,16 @@ function onJobChange() {
     document.querySelector('input[name="Company"]').value = company;
     document.querySelector('textarea[name="JobDescription"]').value = desc;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('form[asp-action="Create"]');
+    var progress = document.getElementById('coverletter-progress');
+    if (!form || !progress) return;
+    form.addEventListener('submit', function () {
+        // Simple visual cue while the AI generates the letter.
+        progress.classList.remove('d-none');
+    });
+});
+
 </script>
 }

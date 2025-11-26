@@ -15,7 +15,7 @@ using JobMatch.Services.Parsing;
 namespace JobMatch.Controllers
 {
     [Authorize(Roles = "Jobseeker")]
-    // All of this is basically about {desc}.
+    // All of this is basically about CV upload and soft delete handling.
     public class CvController : Controller
     {
         private readonly ApplicationDbContext _db;

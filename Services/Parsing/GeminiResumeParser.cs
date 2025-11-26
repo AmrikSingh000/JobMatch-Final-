@@ -8,7 +8,7 @@ using JobMatch.Models.ViewModels;
 
 namespace JobMatch.Services.Parsing
 {
-    // This chunk takes care of {desc}.
+    // This chunk takes care of resume parsing via the Gemini API.
     public class GeminiResumeParser : IResumeParser
     {
         private readonly GeminiClient _gemini;
@@ -18,7 +18,7 @@ namespace JobMatch.Services.Parsing
             _gemini = gemini ?? throw new ArgumentNullException(nameof(gemini));
         }
 
-        // Roughly speaking, this is for {desc}.
+        // Roughly speaking, this is for resume parsing via the Gemini API.
         public ResumeParseResult Parse(string resumeText)
         {
             resumeText ??= string.Empty;

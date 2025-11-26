@@ -2,7 +2,7 @@ using System;
 
 namespace JobMatch.Models
 {
-    // This part mostly deals with {desc}.
+    // This part mostly deals with the resume entity model.
     public class Resume
     {
         public int Id { get; set; }

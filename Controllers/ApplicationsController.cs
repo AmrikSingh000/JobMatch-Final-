@@ -14,7 +14,7 @@ using JobMatch.Services.Email;
 namespace JobMatch.Controllers
 {
     [Authorize]
-    // This part mostly deals with {desc}.
+    // This part mostly deals with job application CRUD and views.
     public class ApplicationsController : Controller
     {
         private readonly ApplicationDbContext _context;

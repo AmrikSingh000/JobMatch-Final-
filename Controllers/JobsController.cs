@@ -12,7 +12,7 @@ using JobMatch.Models.ViewModels;
 
 namespace JobMatch.Controllers
 {
-    // In short, this is mainly for {desc}.
+    // In short, this is mainly for job posting CRUD actions.
     public class JobsController : Controller
     {
         private readonly ApplicationDbContext _context;

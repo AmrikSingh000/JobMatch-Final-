@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace JobMatch.Services.Email
 {
-    // This bit is here to handle {desc}.
+    // This bit is here to handle the SMTP email sending service.
     public class SmtpEmailSender : IAppEmailSender
     {
         private readonly IConfiguration _config;
